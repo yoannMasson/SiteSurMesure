@@ -42,6 +42,10 @@
 }
 
 @media (max-width: 575px) {
+  .u-section-1 {
+    background-position: 50% 50%;
+  }
+
   .u-section-1 .u-sheet-1 {
     min-height: 287px;
   }
@@ -527,12 +531,17 @@
 }
 
 @media (max-width: 767px) {
+  .u-section-4 .u-sheet-1 {
+    min-height: 829px;
+  }
+
   .u-section-4 .u-text-1 {
-    margin-top: 379px;
+    width: auto;
+    margin-top: 51px;
   }
 
   .u-section-4 .u-list-1 {
-    margin-top: -328px;
+    margin-top: 0;
     margin-right: initial;
     margin-left: initial;
   }
