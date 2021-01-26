@@ -93,27 +93,27 @@
     white-space: pre-wrap;
     word-wrap: break-word;
     overflow: visible; }
-  .fr-view[dir="rtl"] blockquote {
-    border-left: none;
-    border-right: solid 2px #5E35B1;
-    margin-right: 0;
-    padding-right: 5px;
-    padding-left: 0; }
-    .fr-view[dir="rtl"] blockquote blockquote {
-      border-color: #00BCD4; }
-      .fr-view[dir="rtl"] blockquote blockquote blockquote {
-        border-color: #43A047; }
-  .fr-view blockquote {
-    border-left: solid 2px #5E35B1;
-    margin-left: 0;
-    padding-left: 5px;
-    color: #5E35B1; }
-    .fr-view blockquote blockquote {
-      border-color: #00BCD4;
-      color: #00BCD4; }
-      .fr-view blockquote blockquote blockquote {
-        border-color: #43A047;
-        color: #43A047; }
+/*.fr-view[dir="rtl"] blockquote {
+  border-left: none;
+  border-right: solid 2px #5E35B1;
+  margin-right: 0;
+  padding-right: 5px;
+  padding-left: 0; }
+  .fr-view[dir="rtl"] blockquote blockquote {
+    border-color: #00BCD4; }
+    .fr-view[dir="rtl"] blockquote blockquote blockquote {
+      border-color: #43A047; }
+.fr-view blockquote {
+  border-left: solid 2px #5E35B1;
+  margin-left: 0;
+  padding-left: 5px;
+  color: #5E35B1; }
+  .fr-view blockquote blockquote {
+    border-color: #00BCD4;
+    color: #00BCD4; }
+    .fr-view blockquote blockquote blockquote {
+      border-color: #43A047;
+      color: #43A047; }*/
   .fr-view span.fr-emoticon {
     font-weight: normal;
     font-family: "Apple Color Emoji","Segoe UI Emoji","NotoColorEmoji","Segoe UI Symbol","Android Emoji","EmojiSymbols";
@@ -4594,13 +4594,13 @@ ol {
   /*TODO maye need another solution for negative marin*/
   cursor: pointer;
   color: inherit;
-  font-style: inherit;
   font-size: inherit;
-  font-weight: inherit;
   font-family: inherit;
   line-height: inherit;
   letter-spacing: inherit;
   text-transform: inherit;
+  font-style: inherit;
+  font-weight: inherit;
   text-decoration: none;
   border: 0 none transparent;
   outline-width: 0;
@@ -4648,12 +4648,10 @@ ol {
   border-radius: 0 !important;
 }
 .u-text a,
-.u-blog-control a,
+.u-post-content a,
 .u-tab-item a,
 .u-nav-item a {
-  font-style: inherit;
   font-size: inherit;
-  font-weight: inherit;
   font-family: inherit;
   line-height: inherit;
   letter-spacing: inherit;
@@ -4729,13 +4727,13 @@ a {
 }
 .u-logo {
   color: inherit;
-  font-style: inherit;
   font-size: inherit;
-  font-weight: inherit;
   font-family: inherit;
   line-height: inherit;
   letter-spacing: inherit;
   text-transform: inherit;
+  font-style: inherit;
+  font-weight: inherit;
   text-decoration: none;
   border: 0 none transparent;
   outline-width: 0;
@@ -5247,7 +5245,7 @@ a {
 }
 .u-form-horizontal .u-input {
   display: flex;
-  width: auto;
+  width: 0;
   vertical-align: middle;
   flex-grow: 1;
   flex-shrink: 1;
@@ -5446,6 +5444,7 @@ a {
 .u-form .u-form-group.u-form-checkbox input[type="checkbox"],
 .u-form .u-form-group.u-form-agree input[type="checkbox"] {
   float: left;
+  flex-shrink: 0;
 }
 .u-form .u-form-group.u-form-checkbox label.u-label,
 .u-form .u-form-group.u-form-agree label.u-label {
@@ -5479,6 +5478,9 @@ a {
   font-size: 1rem;
   height: auto !important;
 }
+.u-form-group {
+  text-align: start;
+}
 .u-btn-submit {
   display: inline-block;
 }
@@ -5504,7 +5506,7 @@ a {
     margin: -0.5rem !important;
   }
   .u-form-horizontal .u-form-group {
-    margin: 0.5rem !important;
+    border: 0.5rem solid transparent !important;
   }
   .u-form-horizontal label {
     display: none;
@@ -12128,6 +12130,9 @@ section.u-image,
   z-index: auto;
   position: absolute !important;
 }
+.u-offcanvas-opened .u-header.u-sticky + section {
+  z-index: -1;
+}
 .u-hide-header .u-header,
 .u-hide-footer .u-footer {
   display: none;
@@ -15869,13 +15874,13 @@ div.u-video,
 .u-nav-link {
   display: block;
   white-space: nowrap;
-  font-style: inherit;
   font-size: inherit;
-  font-weight: inherit;
   font-family: inherit;
   line-height: inherit;
   letter-spacing: inherit;
   text-transform: inherit;
+  font-style: inherit;
+  font-weight: inherit;
   text-decoration: none;
   border: 0 none transparent;
   outline-width: 0;
@@ -15917,6 +15922,17 @@ div.u-video,
   width: 0;
   height: 0;
   overflow: hidden;
+}
+.menu-collapse .u-nav-link.u-file-icon img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  object-fit: contain;
+}
+.menu-collapse .u-nav-link.u-file-icon::after {
+  content: '';
+  height: 1em;
+  display: block;
 }
 .u-nav-container-collapse {
   display: none;
@@ -15983,6 +15999,10 @@ div.u-video,
 }
 .u-enable-responsive.u-offcanvas .u-sidenav > * {
   position: relative;
+}
+.u-enable-responsive.u-offcanvas .u-sidenav .u-nav-link {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
 }
 .u-enable-responsive.u-offcanvas:not(.u-menu-open-right) .u-sidenav {
   border-left: none;
@@ -16339,13 +16359,13 @@ p {
 }
 .u-social-url {
   color: inherit;
-  font-style: inherit;
   font-size: inherit;
-  font-weight: inherit;
   font-family: inherit;
   line-height: inherit;
   letter-spacing: inherit;
   text-transform: inherit;
+  font-style: inherit;
+  font-weight: inherit;
   text-decoration: none;
   border: 0 none transparent;
   outline-width: 0;
@@ -17649,6 +17669,9 @@ a.pswp__share--download:hover {
 .u-text .u-btn.u-button-link {
   display: inline;
 }
+.u-text.u-cart-block-content .u-btn {
+  white-space: nowrap;
+}
 .u-slider {
   display: flex;
   flex-direction: column;
@@ -17884,12 +17907,14 @@ a.pswp__share--download:hover {
 }
 .u-cart-button-container {
   display: flex;
+  position: relative;
   justify-content: space-between;
 }
 .u-cart-blocks-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 30px;
+  position: relative;
 }
 @media (max-width: 767px) {
   .u-cart-blocks-container {
@@ -17971,13 +17996,13 @@ a.pswp__share--download:hover {
 .u-carousel-control-prev,
 .u-carousel-control-next {
   color: inherit;
-  font-style: inherit;
   font-size: inherit;
-  font-weight: inherit;
   font-family: inherit;
   line-height: inherit;
   letter-spacing: inherit;
   text-transform: inherit;
+  font-style: inherit;
+  font-weight: inherit;
   text-decoration: none;
   border: 0 none transparent;
   outline-width: 0;
@@ -31306,21 +31331,28 @@ a.u-link.u-text-hover-grey-90:hover {
 }
 
 .u-footer .u-sheet-1 {
-  min-height: 108px;
+  min-height: 212px;
 }
 
 .u-footer .u-text-1 {
-  margin: 18px 18px 0 706px;
+  margin: 70px 18px 0 705px;
+}
+
+.u-footer .u-icon-1 {
+  width: 14px;
+  height: 17px;
 }
 
 .u-footer .u-icon-2 {
-  height: 16px;
-  width: 16px;
-  margin: -41px 233px 0 auto;
+  margin-top: 0;
 }
 
 .u-footer .u-btn-1 {
-  margin: -33px auto 32px 0;
+  margin: -110px auto 0 0;
+}
+
+.u-footer .u-btn-2 {
+  margin: 30px auto 60px 0;
 }
 @media (max-width: 1199px) {
   .u-footer .u-text-1 {
@@ -31330,7 +31362,7 @@ a.u-link.u-text-hover-grey-90:hover {
   }
 
   .u-footer .u-btn-1 {
-    margin-top: -33px;
+    margin-top: -110px;
   }
 }
 @media (max-width: 991px) {
