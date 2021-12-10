@@ -854,10 +854,6 @@
 }
 
 @media (max-width: 991px) {
-  .u-section-5 .u-sheet-1 {
-    min-height: 1725px;
-  }
-
   .u-section-5 .u-list-1 {
     min-height: 682px;
     grid-template-columns: repeat(2, calc(50% - 12px));
@@ -1170,7 +1166,7 @@
 
 /* Custom CSS */
 .bg-white-to-footer {
-  background-image: linear-gradient(white, white);
+  background-image: linear-gradient(white, #43608e);
 }
 
 #real-h1 {
@@ -1184,6 +1180,7 @@
   border-radius: 50%;
   width: 120px;
   height: 120px;
+  padding: 2rem;
   animation: spin 2s linear infinite;
 }
 
@@ -1196,4 +1193,93 @@
   margin-top: 2rem;
 }
 
+
 /*---------------------------*/
+.realisation {
+  font-family: 'roboto';
+  margin-top: 5rem;
+}
+
+.realisation-img-panel {
+  /* Add shadows to create the "card" effect */
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+}
+
+/* On mouse-over, add a deeper shadow */
+.realisation-img-panel:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.realisation-titre {
+  font-size: 1.2rem;
+  margin-bottom: 4rem;
+  font-weight: 700;
+}
+
+.realisation-desc {
+  text-align: start;
+}
+/* On mouse-over, add a deeper shadow */
+.card:hover {
+  box-shadow: 0 16px 32px 0 rgba(0,0,0,0.2);
+}
+
+.card-img {
+  min-height: 10rem;
+  max-height: 15rem;
+  max-width: 100%;
+}
+
+.img-contained {
+  max-width:100%;
+  max-height:100%;
+}
+
+.realisation-img-panel {
+  position: relative;
+}
+
+.realisation-img-panel *{
+  -webkit-transform: scale(1);
+	transform: scale(1);
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+}
+
+.realisation-img-panel:hover * {
+	-webkit-transform: scale(1.1);
+	transform: scale(1.1);
+}
+
+/* Effect hover image */
+.middle {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: .5s ease;
+  background-color: #43608e;
+}
+
+.text {
+  color: white;
+
+}
+
+.image {
+  backface-visibility: hidden;
+}
+
+.realisation-img-panel:hover .image {
+  opacity: 0.3;
+}
+
+.realisation-img-panel:hover .middle {
+  opacity: 1;
+}
+
